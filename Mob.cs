@@ -36,7 +36,7 @@ public class Mob : MonoBehaviour
         if (isPlayerDetected && player != null)
         {
             Vector3 directionToPlayer = (player.position - transform.position).normalized;
-            float distanceToPlayer = Vector3.Distance(transform.position, player.position);
+         
             // 벽이 없으면 플레이어 방향으로 이동
             transform.position += directionToPlayer * moveSpeed * Time.deltaTime;
         }
