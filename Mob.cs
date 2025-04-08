@@ -5,7 +5,7 @@ using UnityEngine;
 public class Mob : MonoBehaviour
 {
     public int HP = 10;
-    public float moveSpeed = 2.0f; // ÀÌµ¿ ¼Óµµ
+    public float moveSpeed = 2.0f; // ì´ë™ ì†ë„
     private Transform player;
     private bool isPlayerDetected = false;
 
@@ -37,17 +37,7 @@ public class Mob : MonoBehaviour
         {
             Vector3 directionToPlayer = (player.position - transform.position).normalized;
             float distanceToPlayer = Vector3.Distance(transform.position, player.position);
-
-            // ·¹ÀÌÄ³½ºÆ®·Î º® °¨Áö
-            if (Physics.Raycast(transform.position, directionToPlayer, out RaycastHit hit, distanceToPlayer))
-            {
-                if (hit.collider.CompareTag("Wall"))
-                {
-                    // º®ÀÌ °¨ÁöµÇ¸é ÀÌµ¿ ÁßÁö
-                    return;
-                }
-            }
-            // º®ÀÌ ¾øÀ¸¸é ÇÃ·¹ÀÌ¾î ¹æÇâÀ¸·Î ÀÌµ¿
+            // ë²½ì´ ì—†ìœ¼ë©´ í”Œë ˆì´ì–´ ë°©í–¥ìœ¼ë¡œ ì´ë™
             transform.position += directionToPlayer * moveSpeed * Time.deltaTime;
         }
     }
